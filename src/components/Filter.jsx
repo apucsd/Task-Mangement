@@ -44,9 +44,7 @@ const Filter = ({ tasks, setUpNext, setProgress }) => {
       onChange={handleFilterChange}
       className="select select-bordered w-full max-w-xs"
     >
-      <option disabled selected>
-        Filter By
-      </option>
+      <option defaultValue="">Filter By</option>
       <option value="priority">Hight Priority</option>
       <option value="deadline">Deadline</option>
     </select>

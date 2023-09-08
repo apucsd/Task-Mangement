@@ -25,7 +25,7 @@ const Home = () => {
   }, [tasks]);
 
   return (
-    <div className="mb-10 pb-10 md:px-4 useBg">
+    <div className=" md:px-4 ">
       <div className="col-span-9 px-10 pt-10">
         <AddTask reload={reload} setReload={setReload}></AddTask>
         <div className="grid md:grid-cols-3 gap-5 mt-10 ">
@@ -34,7 +34,7 @@ const Home = () => {
               <h1 className=" font-semibold">Up Next</h1>
 
               <p className="bg-blue-600 text-white w-6 h-6 grid place-content-center rounded-md">
-                {upNext.length}
+                {upNext ? upNext.length : "0"}
               </p>
               <div>
                 <Filter tasks={upNext} setUpNext={setUpNext}></Filter>
@@ -55,7 +55,7 @@ const Home = () => {
             <div className="flex sticky top-0 justify-between items-center bg-[#688ced] p-3 rounded-md mb-3">
               <h1 className="text-white font-semibold">In Progress</h1>
               <p className="bg-blue-600 text-white w-6 h-6 grid place-content-center rounded-md">
-                {progress.length}
+                {progress ? progress.length : "0"}
               </p>
               <div>
                 <Filter tasks={progress} setProgress={setProgress}></Filter>
@@ -76,7 +76,7 @@ const Home = () => {
             <div className="flex sticky top-0 justify-between bg-[#47db4c] p-6 rounded-md mb-3">
               <h1 className="text-white font-semibold">Completed</h1>
               <p className="bg-blue-600 text-white w-6 h-6 grid place-content-center rounded-md">
-                {completed.length}
+                {completed ? completed.length : "0"}
               </p>
             </div>
             <div className="space-y-3">

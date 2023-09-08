@@ -49,7 +49,7 @@ const Navbar = () => {
                     htmlFor="my-drawer-4"
                     className="drawer-overlay"
                   ></label>
-                  <ul className="menu  p-4 w-80 min-h-full bg-gradient-to-l from-green-200 via-green-100 to-blue-100">
+                  <ul className="menu  p-4 w-60 min-h-full bg-gradient-to-l from-green-200 via-green-100 to-blue-100">
                     {/* Sidebar content here */}
 
                     <li className="mt-0.5 w-full border-b">

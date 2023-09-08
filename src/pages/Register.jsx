@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import getImageURL from "../reusable/getImgURL";
 import { toast } from "react-hot-toast";
@@ -8,6 +8,7 @@ import { updateProfile } from "firebase/auth";
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleCreateUser = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -29,6 +30,7 @@ const Register = () => {
         .then(() => {
           toast.success("Thanks for creating an account");
           setLoading(false);
+          navigate("/");
         })
         .catch((error) => {
           console.log(error.message);
@@ -43,7 +45,7 @@ const Register = () => {
     }
   };
   return (
-    <div className="useBg mx-auto mb-20  max-w-screen-xl px-4 my-10 sm:px-6 lg:px-8">
+    <div className=" mx-auto mb-20  max-w-screen-xl px-4 my-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg">
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
           Get started today

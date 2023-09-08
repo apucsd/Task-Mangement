@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.useBg {
+body {
   background-image: url("/public/wave.png");
   background-size: cover;
   background-position: center center;

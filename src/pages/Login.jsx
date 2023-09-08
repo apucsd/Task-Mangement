@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -6,7 +6,18 @@ import { toast } from "react-hot-toast";
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      document.getElementById("my_modal_1").showModal();
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   const handleLoginUser = (e) => {
     setLoading(true);
     e.preventDefault();
@@ -15,7 +26,7 @@ const Login = () => {
     const password = form.password.value;
     loginUser(email, password)
       .then(() => {
-        toast.success(`Welcome back ${email}`);
+        toast.success(`Welcome back Dear`);
         setLoading(false);
         navigate("/");
       })
@@ -25,7 +36,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="useBg mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className=" mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-lg">
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
           Welcome Back
@@ -132,6 +143,35 @@ const Login = () => {
           </p>
         </form>
       </div>
+      {/* modal*/}
+      <dialog id="my_modal_1" className="modal">
+        <div
+          style={{
+            backgroundImage: 'url("/wave.png")',
+            backgroundSize: "cover",
+          }}
+          className="modal-box"
+        >
+          <div className=" rounded-lg p-8 ">
+            <div className="w-20 h-20 bg-blue-500 rounded-full mx-auto mb-4"></div>
+            <h2 className="text-3xl font-bold text-center mb-4">Welcome</h2>
+            <p className="px-5 py-3 text-center text-sm font-semibold text-white   bg-blue-600 rounded-sm">
+              Discover the magic of our website.
+              <br />
+              Log in to explore more!
+            </p>
+          </div>
+
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="px-5 py-3 text-xs font-bold text-white uppercase transition-all duration-150 bg-blue-600 rounded shadow outline-none active:bg-teal-600 hover:shadow-md focus:outline-none ease">
+                Close
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
