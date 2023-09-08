@@ -55,7 +55,7 @@ const Navbar = () => {
                     <li className="mt-0.5 w-full border-b">
                       <Link
                         className="py-2.7 bg-blue-500/13   text-sm  my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 "
-                        to="/"
+                        to="/dashboard"
                       >
                         <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                           <FaDashcube className="relative top-0 text-sm leading-normal text-blue-500 "></FaDashcube>
